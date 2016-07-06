@@ -7,11 +7,21 @@ You also will have the ability to load the last simulaitons from cache.
 
 ## Build
 
-To be updated
+To build the solution:
+
+```> .\build.ps1 -target Build-Solution```
+
+To run the tests:
+
+```> .\build.ps1 -target Run-Unit-Tests```
 
 ## Installation
 
-To be updated
+To install this service run the following command:
+
+```
+SEEK.Automation.Phantom.exe install
+```
 
 ## Firewall Rules
 
