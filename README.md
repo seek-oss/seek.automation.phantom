@@ -65,15 +65,15 @@ http://localhost:8080/v1/list
 This will return a list similar to what you see below:
 
 ```
-Port#     Process Name                                                Port Name                                                                       
-80        System                                                      System (TCPv4 port 80)                                                          
-135       svchost                                                     svchost (TCPv4 port 135)                                                        
-445       System                                                      System (TCPv4 port 445)                                                         
-2107      mqsvc                                                       mqsvc (TCPv4 port 2107)                                                         
-5357      System                                                      System (TCPv4 port 5357)                                                        
-8080      System                                                      System (TCPv4 port 8080)                                                        
-9003      System                                                      System (TCPv4 port 9003)                                                        
-49152     System                                                      System (TCPv4 port 49152)  
+Port#     Process Name                                                Port Name
+80        System                                                      System (TCPv4 port 80)
+135       svchost                                                     svchost (TCPv4 port 135)
+445       System                                                      System (TCPv4 port 445)
+2107      mqsvc                                                       mqsvc (TCPv4 port 2107)
+5357      System                                                      System (TCPv4 port 5357)
+8080      System                                                      System (TCPv4 port 8080)
+9003      System                                                      System (TCPv4 port 9003)
+49152     System                                                      System (TCPv4 port 49152)
 ```
 
 This will give you a better view on what ports are available for use. Please don't forget to configure your firewall as discussed previously.
