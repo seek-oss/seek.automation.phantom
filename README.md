@@ -53,6 +53,8 @@ Here are the default values for the service:
 * SEEK.Automation.Phantom.Firewall.Create.Rules is set to false. This prevents Phantom to open firewall ports.
 * Default firewall port ranges: 9000~9025
 
+Please note that you can change these configuration in the app.config of the Phantom.
+
 ## Configuration 
 
 Once the Phantom service is running you can use Phanom's endpoints to register for simulated services. There are different registeration types. The registration types are currently:
