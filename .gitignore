@@ -166,3 +166,5 @@ Build/Packages/**
 src/packages**
 tools/**
 Log-*.txt
+
+src/.vs/**
