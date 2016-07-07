@@ -17,6 +17,8 @@ To run the tests:
 
 ## Installation
 
+Phantom is self-hosted service. This means you can either install it, or run it as console app, by just double clicking it.
+
 To install this service run the following command:
 
 ```
@@ -31,9 +33,9 @@ SEEK.Automation.Phantom.exe uninstall
 
 ## Firewall Rules
 
-In order for Phantom to launch simulations on different ports, your firewall needs to be configured to allow inbound connections to these ports. Phantom has the ability to create
-the rules for your firewall. However, this feature is disabled by default. This means you have two options. You can create the rules manually or enable the feature in Phantom. 
-However, please assess the security risks for your environment before doing so.
+If Phantom is installed on a remote machine rather than running it locally, your firewall needs to be configured to allow inbound connections to these ports. 
+Phantom has the ability to create the rules for your firewall. However, this feature is disabled by default. This means you have two options. You can create the 
+rules manually or enable the feature in Phantom. However, please assess the security risks for your environment before doing so.
 
 In the app.config of the Phantom, you will see the following options:
 
