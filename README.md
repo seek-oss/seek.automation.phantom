@@ -37,7 +37,7 @@ In the app.config of the Phantom, you will see the following options:
 <add key="SEEK.Automation.Phantom.Firewall.Port.Range.To" value="9025"/>
 ```
 
-The above allows your to enable the rule creation as well as the ability to specify the port range.
+The above allows you to enable the rule creation as well as the ability to specify the port range.
 
 ## Default Values
 
