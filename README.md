@@ -259,7 +259,8 @@ You will get the following response back from Github API:
   "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
 }
 ```
->**Note: this is usefull if you have deployed Phantom to Staging environment where you can switch between simulation and the actual service by performing redirect.**
+
+>**Note: this is usefull if you have deployed Phantom to staging environment where you can switch between simulation and the actual service by performing redirect.**
 
 ## Example 5: Logging Simulation
 
