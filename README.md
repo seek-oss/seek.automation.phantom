@@ -370,6 +370,11 @@ oauth_signature
 
 At the heart of the Phantom is a home made web server using http listener. I have performance tested the web server using Gatling. When the load was ramped up, on a single machine, it steadily handled 4000 requests/second until I ran out of memory on my machine. However, I will leave that to the teams/individuals to decide how many instances they need if it is used during performance testing.
 
+## Tests
+
+As time permits more unit tests will be added.
+
+
 ## License Information
 
 This is released under MIT license.
