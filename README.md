@@ -351,6 +351,7 @@ Then the response that comes back everytime will have different values for the a
     "body": {
       "amount": "19",
       "receipt": "7c4530fd-a689-40db-992b-52fcf4ae983f"
+	  }
 }
 ```
 
