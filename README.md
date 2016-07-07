@@ -23,6 +23,12 @@ To install this service run the following command:
 SEEK.Automation.Phantom.exe install
 ```
 
+and of course to uninstall:
+
+```
+SEEK.Automation.Phantom.exe uninstall
+```
+
 ## Firewall Rules
 
 In order for Phantom to launch simulations on different ports, your firewall needs to be configured to allow inbound connections to these ports. Phantom has the ability to create
