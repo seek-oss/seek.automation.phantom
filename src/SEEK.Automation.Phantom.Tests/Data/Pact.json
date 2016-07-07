@@ -1,0 +1,27 @@
+﻿{
+  "provider": {
+    "name": "Dad"
+  },
+  "consumer": {
+    "name": "Child"
+  },
+  "interactions": [
+    {
+      "description": "a request for money",
+      "provider_state": "Dad has enough money",
+      "request": {
+        "method": "post",
+        "path": "/please/give/me/some/money",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "body": {
+          "name": "phantom"
+        }
+      }
+    }
+  ]
+}
