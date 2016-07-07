@@ -25,7 +25,19 @@ SEEK.Automation.Phantom.exe install
 
 ## Firewall Rules
 
-To be updated
+In order for Phantom to launch simulations on different ports, your firewall needs to be configured to allow inbound connections to these ports. Phantom has the ability to create
+the rules for your firewall. However, this feature is disabled by default. This means you have two options. You can create the rules manually or enable the feature in Phantom. 
+However, please assess the security risks for your environment before doing so.
+
+In the app.config of the Phantom, you will see the following options:
+
+```
+<add key="SEEK.Automation.Phantom.Firewall.Create.Rules" value="False"/>
+<add key="SEEK.Automation.Phantom.Firewall.Port.Range.From" value="9000"/>
+<add key="SEEK.Automation.Phantom.Firewall.Port.Range.To" value="9025"/>
+```
+
+The above allows your to enable the rule creation as well as the ability to specify the port range.
 
 ## Default Values
 
