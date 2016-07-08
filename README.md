@@ -21,7 +21,7 @@ To run the tests:
 
 ## Installation
 
-Phantom is self-hosted service. This means you can either install it, or run it as console app, by just double clicking it.
+Phantom is a self-hosted service. This means you can either install it, or run it as a console app, by just double clicking it.
 
 To install this service run the following command:
 
