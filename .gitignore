@@ -167,3 +167,4 @@ src/packages**
 Log-*.txt
 
 src/.vs/**
+tools/*/*

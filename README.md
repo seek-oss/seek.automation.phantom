@@ -1,5 +1,5 @@
-[![Project](https://ci.appveyor.com/api/projects/status/nqk2qr6t6xlobi6i/branch/master?svg=true)](https://ci.appveyor.com/project/b3hdad/seek-automation-phantom/branch/master)
-[![Master](https://ci.appveyor.com/api/projects/status/nqk2qr6t6xlobi6i?svg=true)](https://ci.appveyor.com/project/b3hdad/seek-automation-phantom)
+[![Build status](https://ci.appveyor.com/api/projects/status/nqk2qr6t6xlobi6i?svg=true)](https://ci.appveyor.com/project/b3hdad/seek-automation-phantom)
+[![Build Status](https://ci.appveyor.com/api/projects/status/nqk2qr6t6xlobi6i?svg=true)](https://ci.appveyor.com/project/b3hdad/seek-automation-phantom)
 
 # SEEK Pact Based Service Simulator
 
