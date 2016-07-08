@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/nqk2qr6t6xlobi6i?svg=true)](https://ci.appveyor.com/project/b3hdad/seek-automation-phantom)
+
 # SEEK Pact Based Service Simulator
 
 SEEK.Automation.Phantom is a restfull service simulator written in C#. 
