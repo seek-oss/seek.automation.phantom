@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -108,21 +107,21 @@ namespace SEEK.Automation.Phantom.Support
         }
     }
 
-    public static class NameValueCollectionExtension
+    public static class NameValueCollection
     {
-        public static bool CollectionEquals(this NameValueCollection nameValueCollection1, NameValueCollection nameValueCollection2)
+        public static bool CollectionEquals(this System.Collections.Specialized.NameValueCollection nameValueCollection1, System.Collections.Specialized.NameValueCollection nameValueCollection2)
         {
             return nameValueCollection1.ToKeyValue().SequenceEqual(nameValueCollection2.ToKeyValue());
         }
 
-        private static IEnumerable<object> ToKeyValue(this NameValueCollection nameValueCollection)
+        private static IEnumerable<object> ToKeyValue(this System.Collections.Specialized.NameValueCollection nameValueCollection)
         {
             return nameValueCollection.AllKeys.OrderBy(x => x).Select(x => new { Key = x, Value = nameValueCollection[x] });
         }
 
-        public static NameValueCollection FilterCollection(this NameValueCollection nameValueCollection)
+        public static System.Collections.Specialized.NameValueCollection FilterCollection(this System.Collections.Specialized.NameValueCollection nameValueCollection)
         {
-            var filteredCollection = new NameValueCollection();
+            var filteredCollection = new System.Collections.Specialized.NameValueCollection();
 
             var unwantedKeys = new List<string> { "oauth_consumer_key", "oauth_timestamp", "oauth_signature" };
             foreach (var key in nameValueCollection.AllKeys)

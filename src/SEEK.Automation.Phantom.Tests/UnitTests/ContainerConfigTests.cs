@@ -10,11 +10,18 @@ namespace SEEK.Automation.Phantom.Tests.UnitTests
     public class ContainerConfigTests
     {
         [Fact]
-        public void BuildAutofacContainer_Should_Register_OwinStartup()
+        public void BuildAutofacContainer_Should_Register_HealthController()
         {
             var container = ContainerConfig.BuildContainer();
 
             Assert.True(container.IsRegistered<HealthController>());
+        }
+
+        [Fact]
+        public void BuildAutofacContainer_Should_Register_VersionController()
+        {
+            var container = ContainerConfig.BuildContainer();
+            
             Assert.True(container.IsRegistered<VersionController>());
         }
 

@@ -1,6 +1,10 @@
 # SEEK Pact Based Service Simulator
 
-SEEK.Automation.Phantom is a restfull service simulator. Once it is launched you can use it to run in-memory services listening on different ports, and serving responses to the incoming requests. Each simulated service can be configured to respond with a single response or based on the specified interactions in a pact. This is a similar concept to [the stubbing library](https://github.com/SEEK-Jobs/seek.automation.stub).
+SEEK.Automation.Phantom is a restfull service simulator written in C#. 
+
+Once it is launched you can use it to run in-memory services listening on different ports, and serving responses to the incoming requests. 
+Each simulated service can be configured to respond with a single response or based on the specified interactions in a pact. 
+This is a similar concept to [the stubbing library](https://github.com/SEEK-Jobs/seek.automation.stub).
 
 Please also note all simulations registrations can be done while the service is running and no restart is required.
 You also will have the ability to load the last simulaitons from cache.
