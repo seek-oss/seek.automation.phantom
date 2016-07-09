@@ -7,6 +7,8 @@ using System.Net;
 using System.Net.Http;
 using Microsoft.Owin;
 using Nancy.Helpers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PactNet.Mocks.MockHttpService.Models;
 
 namespace SEEK.Automation.Phantom.Support
@@ -104,6 +106,31 @@ namespace SEEK.Automation.Phantom.Support
             var updatedString = str.Replace("[GUID]", Guid.NewGuid().ToString());
             updatedString = updatedString.Replace("[INT]", random.Next().ToString(CultureInfo.InvariantCulture));
             return updatedString;
+        }
+
+        public static bool IsValidJson(string strInput)
+        {
+            strInput = strInput.Trim();
+            if ((strInput.StartsWith("{") && strInput.EndsWith("}")) || (strInput.StartsWith("[") && strInput.EndsWith("]"))) 
+            {
+                try
+                {
+                    JToken.Parse(strInput);
+                    return true;
+                }
+                catch (JsonReaderException jex)
+                {
+                    Console.WriteLine(jex.Message);
+                    return false;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                    return false;
+                }
+            }
+
+            return false;
         }
     }
 

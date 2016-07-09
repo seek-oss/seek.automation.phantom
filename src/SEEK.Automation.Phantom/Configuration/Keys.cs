@@ -13,7 +13,8 @@ namespace SEEK.Automation.Phantom.Configuration
         public static string FirewallCreateRules = "SEEK.Automation.Phantom.Firewall.Create.Rules";
         public static string FirewallPortFrom = "SEEK.Automation.Phantom.Firewall.Port.Range.From";
         public static string FirewallPortTo = "SEEK.Automation.Phantom.Firewall.Port.Range.To";
-        
+
+
         public static string TryGetConfigValue(string key, string @default)
         {
             try

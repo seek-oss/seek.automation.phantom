@@ -23,7 +23,6 @@ namespace SEEK.Automation.Phantom
 
         public void Start()
         {
-            // Register Web API
             var host = Keys.TryGetConfigValue(Keys.Host, "localhost");
             var port = Keys.TryGetConfigValue(Keys.Port, "8080");
 

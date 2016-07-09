@@ -8,7 +8,7 @@ namespace SEEK.Automation.Phantom.Tests.UnitTests
     public class NameValueCollectionExtensionTests
     {
         [Fact]
-        public void Validate_When_Collection_Equal()
+        public void Validate_When_Collections_Equal()
         {
             var collection1 = new NameValueCollection {{"sky", "blue"}, {"car", "black"}};
             var collection2 = new NameValueCollection { { "sky", "blue" }, { "car", "black" } };
