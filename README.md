@@ -166,7 +166,7 @@ If you have a pact already, you can use that as the basis for performing simulat
 }
 ```
 
-Then you can create a simulated service by using the ```pact``` registration type. So to simualte on ```port 9001```:
+Then you can create a simulated service by using the ```pact``` registration type. So to simualate on ```port 9001```:
 
 ```
 POST http://localhost:8080/v1/simulate?type=pact&port=9001
