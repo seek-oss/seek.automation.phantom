@@ -2,25 +2,46 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/nqk2qr6t6xlobi6i/branch/master?svg=true&passingText=master%20-%20OK)](https://ci.appveyor.com/project/b3hdad/seek-automation-phantom/branch/master)
 
 # SEEK Pact Based Service Simulator
+SEEK.Automation.Phantom is a restfull service simulator written in C#.
 
-SEEK.Automation.Phantom is a restfull service simulator written in C#. 
-
-Once it is launched you can use it to run in-memory services listening on different ports, and serving responses to the incoming requests. 
-Each simulated service can be configured to respond with a single response or based on the specified interactions in a pact. 
-This is a similar concept to [the stubbing library](https://github.com/SEEK-Jobs/seek.automation.stub).
+Once it is launched you can use it to run in-memory services listening on different ports, and serving responses to the incoming requests.
+Each simulated service can be configured to respond with a single response or based on the specified interactions in a pact.
+This is a similar concept to [the stubbing library](https://github.com/seek-oss/seek.automation.stub).
 
 Please also note all simulations registrations can be done while the service is running and no restart is required.
-You also will have the ability to load the last simulaitons from cache.
+You also will have the ability to load the last simulations from cache.
+
+- [Build](#build)
+- [Installation](#installation)
+- [Firewall Rules](#firewall-rules)
+- [Default Values](#default-values)
+- [Configuration](#configuration)
+- [Example 1: Phantom's Health and Available Ports](#example-1-phantoms-health-and-available-ports)
+- [Example 2: Single Response Simulation](#example-2-single-response-simulation)
+- [Example 3: Pact Based Simulation](#example-3-pact-based-simulation)
+- [Example 4: Redirection Simulation](#example-4-redirection-simulation)
+- [Example 5: Logging Simulation](#example-5-logging-simulation)
+- [Example 5: Restore Simulations From Cache](#example-5-restore-simulations-from-cache)
+- [Tips and Tricks](#tips-and-tricks)
+- [Authentication Workaround](#authentication-workaround)
+- [Performance](#performance)
+- [Future Enhancements](#future-enhancements)
+- [Tests](#tests)
+- [License Information](#license-information)
 
 ## Build
 
 To build the solution:
 
-```> .\build.ps1 -target Build-Solution```
+```powershell
+> .\build.ps1 -target Build-Solution
+```
 
 To run the tests:
 
-```> .\build.ps1 -target Run-Unit-Tests```
+```powershell
+> .\build.ps1 -target Run-Unit-Tests
+```
 
 ## Installation
 
@@ -28,25 +49,25 @@ Phantom is a self-hosted service. This means you can either install it, or run i
 
 To install this service run the following command:
 
-```
+```powershell
 SEEK.Automation.Phantom.exe install
 ```
 
 and of course to uninstall:
 
-```
+```powershell
 SEEK.Automation.Phantom.exe uninstall
 ```
 
 ## Firewall Rules
 
-If Phantom is installed on a remote machine rather than running it locally, your firewall needs to be configured to allow inbound connections to these ports. 
-Phantom has the ability to create the rules for your firewall. However, this feature is disabled by default. This means you have two options. You can create the 
+If Phantom is installed on a remote machine rather than running it locally, your firewall needs to be configured to allow inbound connections to these ports.
+Phantom has the ability to create the rules for your firewall. However, this feature is disabled by default. This means you have two options. You can create the
 rules manually or enable the feature in Phantom. However, please assess the security risks for your environment before doing so.
 
 In the app.config of the Phantom, you will see the following options:
 
-```
+```xml
 <add key="SEEK.Automation.Phantom.Firewall.Create.Rules" value="False"/>
 <add key="SEEK.Automation.Phantom.Firewall.Port.Range.From" value="9000"/>
 <add key="SEEK.Automation.Phantom.Firewall.Port.Range.To" value="9025"/>
@@ -62,16 +83,16 @@ Here are the default values for the service:
 * SEEK.Automation.Phantom.Firewall.Create.Rules is set to false. This prevents Phantom to open firewall ports.
 * Default firewall port ranges: 9000~9025
 
-Please note that you can change these configuration in the app.config of the Phantom.
+Please note that you can change these configuration in the `app.config` of the Phantom.
 
-## Configuration 
+## Configuration
 
-Once the Phantom service is running you can use Phanom's endpoints to register for simulated services. There are different registeration types. The registration types are currently:
+Once the Phantom service is running you can use Phantom's endpoints to register for simulated services. There are different registration types. The registration types are currently:
 
-* register  this allows to serve a single response to any request
-* pact      this allows to specify a pact and serve responses based on the interactions in the pact
-* redirect  this allows to redirect a request to another server
-* log       this allows to log the last incoming request to a file
+* `register`: this allows to serve a single response to any request
+* `pact`: this allows to specify a pact and serve responses based on the interactions in the pact
+* `redirect`: this allows to redirect a request to another server
+* `log`: this allows to log the last incoming request to a file
 
 Please see below for examples on how to simulate and configure services.
 
@@ -110,7 +131,7 @@ This will give you a better view on what ports are available for use. Please don
 ## Example 2: Single Response Simulation
 
 If you want to simulate a service where every request is treated the same by sending back the same response, you can
-use the ```register``` registeration type. So for example to request from Phantom to run a simulated service on 
+use the `register` registration type. So for example to request from Phantom to run a simulated service on
 port 9000 do the following:
 
 ```
@@ -121,17 +142,17 @@ with payload:
 
 ```json
 {
-	  "id": 1,
-	  "username": "John""
+  "id": 1,
+  "username": "John""
 }
 ```
 
-Now any request that comes in on port 9000 will recieve the following response:
+Now any request that comes in on port 9000 will receive the following response:
 
 ```json
 {
-	  "id": 1,
-	  "username": "John""
+  "id": 1,
+  "username": "John""
 }
 ```
 
@@ -166,7 +187,7 @@ If you have a pact already, you can use that as the basis for performing simulat
 }
 ```
 
-Then you can create a simulated service by using the ```pact``` registration type. So to simulate on ```port 9001```:
+Then you can create a simulated service by using the `pact` registration type. So to simulate on `port 9001`:
 
 ```
 POST http://localhost:8080/v1/simulate?type=pact&port=9001
@@ -200,27 +221,28 @@ With payload:
   ]
 }
 ```
+
 Now after you have done the above registration, if you do the following post:
 
 ```
 POST http://localhost:9001/please/give/me/some/money
 ```
 
-You should recieve a response with status code of 200.
+You should receive a response with status code of 200.
 
 > Tips: when registering the simulation, instead of using the actual pact as payload, you can specify the pact broker URL.
 
->**Warning: please do not use pact broker's URL if you intend to run performance tests.**
+> **Warning: please do not use pact broker's URL if you intend to run performance tests.**
 
 ## Example 4: Redirection Simulation
 
-You might at times want to redirect requests. This can be done by using the ```redirect``` registration type:
+You might at times want to redirect requests. This can be done by using the `redirect` registration type:
 
 ```
 POST http://localhost:8080/v1/simulate?type=redirect&port=9002
 ```
 
-where the payload contains the URL to which you want to redirect to. So for example if it is Github API:
+where the payload contains the URL to which you want to redirect to. So for example if it is GitHub API:
 
 ```
 https://api.github.com/
@@ -232,7 +254,7 @@ After you have done the above registration, if you now do the following post:
 http://localhost:9002
 ```
 
-You will get the following response back from Github API:
+You will get the following response back from GitHub API:
 
 ```json
 {
@@ -269,11 +291,11 @@ You will get the following response back from Github API:
 }
 ```
 
->**Note: this is usefull if you have deployed Phantom to staging environment where you can switch between simulation and the actual service by performing redirect.**
+> **Note: this is useful if you have deployed Phantom to staging environment where you can switch between simulation and the actual service by performing redirect.**
 
 ## Example 5: Logging Simulation
 
-If you want to log the last requests body into a file, they you can use the ```log``` registration type:
+If you want to log the last requests body into a file, they you can use the `log` registration type:
 
 ```
 POST http://localhost:8080/v1/simulate?type=log&port=9003
@@ -285,7 +307,7 @@ Where the payload is the full path to your log file:
 C:\logs\log.txt
 ```
 
-after the above registration is done, the body of the request that comes through port ```9003``` will be logged to the specified log file.
+after the above registration is done, the body of the request that comes through port `9003` will be logged to the specified log file.
 
 ## Example 5: Restore Simulations From Cache
 
@@ -323,7 +345,7 @@ Similarly, if you need Phantom to return a response where you require a differen
 
 So if you register a pact simulation with the following pact:
 
-```
+```json
 {
   "provider": {
     "name": "Dad"
@@ -353,15 +375,16 @@ So if you register a pact simulation with the following pact:
   ]
 }
 ```
-Then the response that comes back everytime will have different values for the amount and the receipt:
 
-```
+Then the response that comes back every time will have different values for the amount and the receipt:
+
+```json
 {
-    "status": 200,
-    "body": {
-      "amount": "19",
-      "receipt": "7c4530fd-a689-40db-992b-52fcf4ae983f"
-	  }
+  "status": 200,
+  "body": {
+    "amount": "19",
+    "receipt": "7c4530fd-a689-40db-992b-52fcf4ae983f"
+  }
 }
 ```
 
@@ -388,8 +411,6 @@ If you have other features or you find any issues please either send a pull requ
 
 As time permits more unit tests will be added.
 
-
 ## License Information
 
 This is released under MIT license.
-
