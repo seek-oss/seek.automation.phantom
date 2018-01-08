@@ -24,7 +24,7 @@ namespace SEEK.Automation.Phantom
         public void Start()
         {
             var host = Keys.TryGetConfigValue(Keys.Host, "localhost");
-            var port = Keys.TryGetConfigValue(Keys.Port, "8080");
+            var port = Keys.TryGetConfigValue(Keys.Port, "9090");
 
             var endpoint = string.Format("http://{0}:{1}", host, port);
             _webApplication = WebApp.Start(endpoint, app => OwinStartup.Configuration(app, _container));

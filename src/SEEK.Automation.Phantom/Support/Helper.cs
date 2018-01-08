@@ -49,7 +49,7 @@ namespace SEEK.Automation.Phantom.Support
         {
             foreach (var providerServiceInteraction in pactFile.Interactions)
             {
-                if (providerServiceInteraction.Request.Path.StartsWith(request.Url.LocalPath))
+                if (providerServiceInteraction.Request.Path.Equals(request.Url.LocalPath))
                 {
                     if (!string.IsNullOrEmpty(request.Url.Query))
                     {
